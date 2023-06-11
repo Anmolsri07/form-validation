@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="contain">
+    <form class="form" [formGroup]="signin" (ngSubmit)="onsubmit(signin.value)">
+      <h1>Sign In</h1>
+
+      <div class="inputs">
+        <p
+          style="color: red"
+          *ngIf="user && user.errors?.['required'] && user.touched"
+        >
+          *this field is required
+        </p>
+
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="user && user.touched && user.errors?.['pattern']  "
+        >
+          *please Enter Valid username or email
+        </p>
+
+        <input
+          type="text"
+          placeholder="Enter Username or Email "
+          formControlName="username"
+        />
+      </div>
+      <div class="inputs">
+        <p
+          style="color: red"
+          *ngIf="password && password.errors?.['required'] && password.touched"
+        >
+          *this field is required
+        </p>
+
+        <p
+          style="color: red"
+          *ngIf="password && password.errors?.['minlength'] && password.touched"
+        >
+          *minimum length should be 6
+        </p>
+        <input type="password" placeholder="password" formControlName="pword" />
+      </div>
+      <div class="btn">
+        <button type="submit" class="button" [disabled]="!signin.valid">
+          Sign-in
+        </button>
+      </div>
+      <div class="msg">
+        <p>don't have a account? create <a routerLink="/">Sign-up</a></p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="contain">
+    <form class="form" [formGroup]="signup" (ngSubmit)="onsubmit(signup.value)">
+      <h1>SIGN UP</h1>
+      <div class="inputs">
+        Firstname:
+        <input type="text" placeholder="Firstname" formControlName="fname" />
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="(fname && fname.errors?.['required'] && fname.touched)"
+        >
+          *this field is required
+        </p>
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="fname && fname.errors?.['pattern'] && fname.touched "
+        >
+          *please Enter Valid name
+        </p>
+      </div>
+      <div class="inputs">
+        Lastname:
+        <input type="text" placeholder="lastname" formControlName="lname" />
+      </div>
+
+      <div class="inputs">
+        Phone:
+
+        <input
+          required
+          type="tel"
+          placeholder="Phone no."
+          formControlName="telephone"
+        />
+
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="(phone && phone.errors?.['required'] && phone.touched)"
+        >
+          *this field is required
+        </p>
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="phone && phone.touched && (phone.errors?.['pattern'] || phone.errors?.['minlength']||phone.errors?.['maxlength'])"
+        >
+          *Please Enter Valid number
+        </p>
+      </div>
+
+      <div class="inputs">
+        Email:<input type="email" placeholder="Email" formControlName="email" />
+
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="(mail && mail.errors?.['required'] && mail.touched)"
+        >
+          *this field is required
+        </p>
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="mail && mail.errors?.['email'] && mail.touched"
+        >
+          *Please Enter Valid email
+        </p>
+      </div>
+
+      <div class="inputs">
+        Password:
+
+        <input
+          type="password"
+          placeholder="password"
+          formControlName="password"
+        />
+
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="(password && password.errors?.['required'] && password.touched)"
+        >
+          *this field is required
+        </p>
+
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="password && password.touched &&(password.errors?.['pattern']||password.errors?.['minlength'])"
+        >
+          *Password must be atleast 6
+        </p>
+      </div>
+
+      <div class="inputs">
+        Confirm-password:
+        <input
+          type="password"
+          placeholder="confirm password"
+          formControlName="cpassword"
+        />
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="(cpassword && cpassword.errors?.['required'] && cpassword.touched)"
+        >
+          *this field is required
+        </p>
+        <p
+          class="error"
+          style="color: red"
+          *ngIf="
+            cpassword && cpassword.value != password?.value && cpassword.touched
+          "
+        >
+          *password doesn't match
+        </p>
+      </div>
+      <div class="btn">
+        <button type="submit" class="button">Sign up</button>
+      </div>
+      <div class="msg">
+        <p>Already have a account? <a routerLink="/signin">Sign-in</a></p>
+      </div>
+    </form>
+  </div>
+</div>

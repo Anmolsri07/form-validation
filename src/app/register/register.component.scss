@@ -1,0 +1,13 @@
+.form {
+  & .inputs {
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+}
+.error {
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+.form input.ng-invalid.ng-touched {
+  border: red 1px solid;
+}

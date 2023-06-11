@@ -1,0 +1,146 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "username": "anmolsri001.dmk@gmail.com",
+      "pword": "jojoljjjjjjjjjjj",
+      "id": 2
+    },
+    {
+      "username": "anmolsri001.dmk@gmail.com",
+      "pword": "jjjjjjjjjjjjjjjj",
+      "id": 3
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 4
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 5
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 6
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 7
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 8
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 9
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 10
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 11
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 12
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 13
+    },
+    {
+      "fname": "anmol",
+      "lname": "",
+      "telephone": "",
+      "email": "",
+      "password": "",
+      "cpassword": "",
+      "id": 14
+    },
+    {
+      "fname": "Anmol",
+      "lname": "sri",
+      "telephone": "0987654323",
+      "email": "anmolsri001.dmk@gmail.com",
+      "password": "123456",
+      "cpassword": "123456",
+      "id": 15
+    },
+    {
+      "fname": "kfjdkkj",
+      "lname": "kjfkjkjg",
+      "telephone": "0987654323",
+      "email": "anmolsri001.dmk@gmail.com",
+      "password": "123456",
+      "cpassword": "123456",
+      "id": 16
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
