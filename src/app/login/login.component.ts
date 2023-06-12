@@ -11,10 +11,10 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   users: any;
   constructor(private userData: FormService, private router: Router) {
-    userData.Users().subscribe((result) => {
-      console.log(result);
-      this.users = result;
-    });
+    // userData.Users().subscribe((result) => {
+    //   console.log(result);
+    //   this.users = result;
+    // });
   }
 
   signin = new FormGroup({
@@ -28,7 +28,7 @@ export class LoginComponent {
 
   onsubmit(info: any) {
     // console.log(this.signin.value);
-    this.userData.saveUser(info).subscribe(
+    this.userData.Users().subscribe(
       (result) => {
         console.log(result);
       },

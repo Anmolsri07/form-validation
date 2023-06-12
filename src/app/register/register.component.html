@@ -1,28 +1,43 @@
 <div class="container">
   <div class="contain">
-    <form class="form" [formGroup]="signup" (ngSubmit)="onsubmit(signup.value)">
+    <form class="form" [formGroup]="signup" (ngSubmit)="onsubmit()">
       <h1>SIGN UP</h1>
       <div class="inputs">
         Firstname:
         <input type="text" placeholder="Firstname" formControlName="fname" />
-        <p
+        <div *ngIf="submitted && f['fname'].errors">
+          <p style="color: red" *ngIf="f['fname'].errors['required']">
+            Required
+          </p>
+
+          <p
+            class="error"
+            style="color: red"
+            *ngIf="f['fname'].errors['pattern']"
+          >
+            *please enter valid name
+          </p>
+        </div>
+
+        <!-- <p
           class="error"
           style="color: red"
           *ngIf="(fname && fname.errors?.['required'] && fname.touched)"
         >
           *this field is required
-        </p>
-        <p
-          class="error"
-          style="color: red"
-          *ngIf="fname && fname.errors?.['pattern'] && fname.touched "
-        >
-          *please Enter Valid name
-        </p>
+        </p> -->
       </div>
+
       <div class="inputs">
         Lastname:
         <input type="text" placeholder="lastname" formControlName="lname" />
+
+        <p
+          style="color: red"
+          *ngIf="!signup.controls['lname'].valid && submitted"
+        >
+          Required
+        </p>
       </div>
 
       <div class="inputs">
@@ -34,40 +49,81 @@
           placeholder="Phone no."
           formControlName="telephone"
         />
+        <div *ngIf="submitted && f['telephone'].errors">
+          <p style="color: red" *ngIf="f['telephone'].errors['required']">
+            Required
+          </p>
+          <p
+            style="color: red"
+            *ngIf="
+              f['telephone'].errors['pattern'] ||
+              f['telephone'].errors['minlength'] ||
+              f['telephone'].errors['maxlength']
+            "
+          >
+            *please enter valid phone number
+          </p>
+        </div>
 
-        <p
+        <!-- <p
           class="error"
           style="color: red"
           *ngIf="(phone && phone.errors?.['required'] && phone.touched)"
         >
           *this field is required
-        </p>
-        <p
+        </p> -->
+        <!-- <p
           class="error"
           style="color: red"
           *ngIf="phone && phone.touched && (phone.errors?.['pattern'] || phone.errors?.['minlength']||phone.errors?.['maxlength'])"
         >
           *Please Enter Valid number
-        </p>
+        </p> -->
+
+        <!-- <p
+          style="color: red"
+          *ngIf="!signup.controls['telephone'].valid && submitted"
+        >
+          Required
+        </p> -->
       </div>
 
       <div class="inputs">
         Email:<input type="email" placeholder="Email" formControlName="email" />
+        <div *ngIf="submitted && f['email'].errors">
+          <p style="color: red" *ngIf="f['email'].errors['required']">
+            Required
+          </p>
 
-        <p
+          <p
+            class="error"
+            style="color: red"
+            *ngIf="f['email'].errors['email']"
+          >
+            *please enter valid email
+          </p>
+        </div>
+        <!-- <p
           class="error"
           style="color: red"
           *ngIf="(mail && mail.errors?.['required'] && mail.touched)"
         >
           *this field is required
-        </p>
-        <p
+        </p> -->
+        <!-- <p
           class="error"
           style="color: red"
           *ngIf="mail && mail.errors?.['email'] && mail.touched"
         >
           *Please Enter Valid email
-        </p>
+        </p> -->
+
+        <!-- <p
+          style="color: red"
+          *ngIf="!signup.controls['email'].valid && submitted"
+        >
+          Required
+        </p> -->
       </div>
 
       <div class="inputs">
@@ -78,22 +134,45 @@
           placeholder="password"
           formControlName="password"
         />
+        <div *ngIf="submitted && f['password'].errors">
+          <p style="color: red" *ngIf="f['password'].errors['required']">
+            required
+          </p>
 
-        <p
+          <p
+            class="error"
+            style="color: red"
+            *ngIf="
+              f['password'].errors['pattern'] ||
+              f['password'].errors['minlength']
+            "
+          >
+            *password must be atleast 6 digit
+          </p>
+        </div>
+
+        <!-- <p
           class="error"
           style="color: red"
           *ngIf="(password && password.errors?.['required'] && password.touched)"
         >
           *this field is required
-        </p>
+        </p> -->
 
-        <p
+        <!-- <p
           class="error"
           style="color: red"
           *ngIf="password && password.touched &&(password.errors?.['pattern']||password.errors?.['minlength'])"
         >
           *Password must be atleast 6
-        </p>
+        </p> -->
+
+        <!-- <p
+          style="color: red"
+          *ngIf="!signup.controls['password'].valid && submitted"
+        >
+          Required
+        </p> -->
       </div>
 
       <div class="inputs">
@@ -103,13 +182,13 @@
           placeholder="confirm password"
           formControlName="cpassword"
         />
-        <p
+        <!-- <p
           class="error"
           style="color: red"
           *ngIf="(cpassword && cpassword.errors?.['required'] && cpassword.touched)"
         >
           *this field is required
-        </p>
+        </p> -->
         <p
           class="error"
           style="color: red"
@@ -118,6 +197,13 @@
           "
         >
           *password doesn't match
+        </p>
+
+        <p
+          style="color: red"
+          *ngIf="!signup.controls['cpassword'].valid && submitted"
+        >
+          Required
         </p>
       </div>
       <div class="btn">

@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   users: any;
   signup: FormGroup;
   submitted: boolean = false;
+
   constructor(
     private userData: FormService,
     private router: Router,
@@ -36,7 +37,7 @@ export class RegisterComponent implements OnInit {
       lname: new FormControl('', [Validators.required]),
       telephone: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[0-9]*$'),
+        Validators.pattern('[0-9]*'),
         Validators.minLength(10),
         Validators.maxLength(10),
       ]),
@@ -50,18 +51,19 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onsubmit(info: any) {
-    console.log(this.signup.value);
-
+  onsubmit() {
+    const regData = this.signup.value;
+    console.log('----------------', regData);
     this.submitted = true;
+
     if (this.signup.valid) {
-      this.userData.saveUser(info).subscribe(
+      this.userData.saveUser(regData).subscribe(
         (result) => {
           console.log(result);
         },
         (error) => {},
         () => {
-          this.router.navigateByUrl('/register');
+          this.router.navigateByUrl('/signin');
         }
       );
     } else {
@@ -70,8 +72,6 @@ export class RegisterComponent implements OnInit {
     console.log(this.signup.value);
   }
   get f() {
-    console.log(this.signup.controls);
-
     return this.signup.controls;
   }
 
